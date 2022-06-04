@@ -61,12 +61,12 @@ class TestDodatakA(unittest.TestCase):
     def test_root_poz_poz(self):
         unit = dodatak_A.OperationsManager(3.0, 2.0)
 
-        self.assertEqual(unit.perform_root(), math.sqrt(3.0))
+        self.assertAlmostEqual(unit.perform_root(), math.sqrt(3.0))
 
     def test_poz_root_neg(self):
         unit = dodatak_A.OperationsManager(3.0, -2.0)
 
-        self.assertEqual(unit.perform_root(), 1.0/math.sqrt(3.0))
+        self.assertAlmostEqual(unit.perform_root(), 1.0/math.sqrt(3.0))
 
     def test_root_neg_poz(self):
         unit = dodatak_A.OperationsManager(-3.0, 2.0)
@@ -76,7 +76,6 @@ class TestDodatakA(unittest.TestCase):
     def test_root_neg_neg(self):
         unit = dodatak_A.OperationsManager(-3.0, -2.0)
 
-        self.assertEqual(unit.perform_root(), 1.5)
         self.assertEqual(unit.perform_root(), float('nan'))
 
     def test_root_zero_poz(self):
