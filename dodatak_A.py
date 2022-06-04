@@ -1,6 +1,6 @@
 import getpass
 import math
-
+import hashlib
 
 class OperationsManager():
 
@@ -25,17 +25,29 @@ class OperationsManager():
 
         return math.pow(self.a, 1/self.b)
 
-
 if __name__ == "__main__":
     user = input("Username: ")
     password = getpass.getpass("Password: ")
-    if user != "root" or password != "123":
+
+    password_hash = hashlib.sha256(password.encode("utf-8")).hexdigest()
+
+    pass_file = open("safe_pass.txt", "r")
+    safe_pass = pass_file.read()
+    pass_file.close()
+
+    if user != "root" or password_hash != safe_pass:
         print("Wrong username or password!")
         exit(0)
     else:
         print("Login success!")
         a = float(input("A = "))
         b = float(input("B = "))
+
+        print("Division:")
         ops_manager = OperationsManager(a, b)
         print(ops_manager.perform_division())
+
+        print("Root:")
+        ops_manager = OperationsManager(a, b)
+        print(ops_manager.perform_root())
 
