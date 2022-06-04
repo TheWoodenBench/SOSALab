@@ -4,9 +4,9 @@ pipeline {
     stages {
         stage('Test') { 
             steps {
-                sh "mkdir 'E:\\Dev\\Uni\\SOSA\\lab3\\test'"
+                sh "mkdir 'test'"
 
-                dir ('E:\\Dev\\Uni\\SOSA\\lab3\\test') {
+                dir ('test') {
                     checkout scm
                 }
             }
