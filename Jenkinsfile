@@ -4,8 +4,8 @@ pipeline {
     stages {
         stage('Preparation') {
             steps {
-                bat "rmdir -r test"
-                bat "rmdir -r production"
+                bat "rmdir -rf test"
+                bat "rmdir -rf production"
             }
         }
 
