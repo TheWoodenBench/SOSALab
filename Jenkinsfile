@@ -13,7 +13,7 @@ pipeline {
                 }
 
                 dir ('logs') {
-                    bat "python ../test/tests.py > unittest_${DATETIME}.log"
+                    bat "python ../test/tests.py 2> unittest_${DATETIME}.log"
                     bat "bandit -r ../test/dodatak_A.py > bandit_${DATETIME}.log"
                 }
             }
