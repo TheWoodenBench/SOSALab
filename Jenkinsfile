@@ -9,7 +9,7 @@ pipeline {
                 }
 
                 dir ('logs') {
-                    bat 'python tests.py >> unittest.log'
+                    bat 'python ../test/tests.py >> unittest.log'
                     bat 'bandit -r ../test/dodatak_A.py >> bandit.log'
                 }
             }
