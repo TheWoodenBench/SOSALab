@@ -1,4 +1,5 @@
 import getpass
+import math
 
 
 class OperationsManager():
@@ -10,6 +11,10 @@ class OperationsManager():
     def perform_division(self) -> float:
         """Divides a with b. If b is zero, returns NaN."""
         return self.a / self.b
+
+    def perform_root(self) -> float:
+        """Gets the bth root of a. If any value is invalid returns NaN."""
+        return math.pow(self.a, 1/self.b)
 
 
 if __name__ == "__main__":
