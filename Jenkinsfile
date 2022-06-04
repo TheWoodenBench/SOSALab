@@ -8,9 +8,9 @@ pipeline {
                     checkout scm
                 }
 
-                dir ('logs') {}
-                
-                bat 'bandit -r test/dodatak_A.py >> logs/bandit.log'
+                dir ('logs') {
+                    bat 'bandit -r ../test/dodatak_A.py >> bandit.log'
+                }
             }
         }
     }
