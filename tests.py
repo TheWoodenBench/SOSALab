@@ -7,52 +7,52 @@ class TestDodatakA(unittest.TestCase):
     #
     #   Division tests
     #
-    def test_poz_poz(self):
+    def test_div_poz_poz(self):
         unit = dodatak_A.OperationsManager(3.0, 2.0)
 
         self.assertEqual(unit.perform_division(), 1.5)
 
-    def test_poz_neg(self):
+    def test_div_poz_neg(self):
         unit = dodatak_A.OperationsManager(3.0, -2.0)
 
         self.assertEqual(unit.perform_division(), -1.5)
 
-    def test_neg_poz(self):
+    def test_div_neg_poz(self):
         unit = dodatak_A.OperationsManager(-3.0, 2.0)
 
         self.assertEqual(unit.perform_division(), -1.5)
 
-    def test_neg_neg(self):
+    def test_div_neg_neg(self):
         unit = dodatak_A.OperationsManager(-3.0, -2.0)
 
         self.assertEqual(unit.perform_division(), 1.5)
 
-    def test_zero_poz(self):
+    def test_div_zero_poz(self):
         unit = dodatak_A.OperationsManager(0.0, 2.0)
 
         self.assertEqual(unit.perform_division(), 0.0)
 
-    def test_zero_neg(self):
+    def test_div_zero_neg(self):
         unit = dodatak_A.OperationsManager(0.0, -2.0)
 
         self.assertEqual(unit.perform_division(), 0.0)
     
-    def test_bignum(self):
+    def test_div_bignum(self):
         unit = dodatak_A.OperationsManager(1000000000000000000000000000000000000000000000000.0, -2.0)
 
         self.assertEqual(unit.perform_division(), -500000000000000000000000000000000000000000000000.0)
 
 
 
-    def test_poz_zero(self):
+    def test_div_poz_zero(self):
         unit = dodatak_A.OperationsManager(2.0, 0.0)
 
-        self.assertEqual(unit.perform_division(), float('nan'))
+        self.assertTrue(math.isnan(unit.perform_division()))
 
-    def test_neg_zero(self):
+    def test_div_neg_zero(self):
         unit = dodatak_A.OperationsManager(-2.0, 0.0)
 
-        self.assertEqual(unit.perform_division(), float('nan'))
+        self.assertTrue(math.isnan(unit.perform_division()))
 
 
     # 
@@ -63,7 +63,7 @@ class TestDodatakA(unittest.TestCase):
 
         self.assertAlmostEqual(unit.perform_root(), math.sqrt(3.0))
 
-    def test_poz_root_neg(self):
+    def test_root_poz_neg(self):
         unit = dodatak_A.OperationsManager(3.0, -2.0)
 
         self.assertAlmostEqual(unit.perform_root(), 1.0/math.sqrt(3.0))
@@ -71,12 +71,12 @@ class TestDodatakA(unittest.TestCase):
     def test_root_neg_poz(self):
         unit = dodatak_A.OperationsManager(-3.0, 2.0)
 
-        self.assertEqual(unit.perform_root(), float('nan'))
+        self.assertTrue(math.isnan(unit.perform_root()))
 
     def test_root_neg_neg(self):
         unit = dodatak_A.OperationsManager(-3.0, -2.0)
 
-        self.assertEqual(unit.perform_root(), float('nan'))
+        self.assertTrue(math.isnan(unit.perform_root()))
 
     def test_root_zero_poz(self):
         unit = dodatak_A.OperationsManager(0.0, 2.0)
@@ -92,12 +92,12 @@ class TestDodatakA(unittest.TestCase):
     def test_root_poz_zero(self):
         unit = dodatak_A.OperationsManager(2.0, 0.0)
 
-        self.assertEqual(unit.perform_root(), float('nan'))
+        self.assertTrue(math.isnan(unit.perform_root()))
 
     def test_root_neg_zero(self):
         unit = dodatak_A.OperationsManager(-2.0, 0.0)
 
-        self.assertEqual(unit.perform_root(), float('nan'))
+        self.assertTrue(math.isnan(unit.perform_root()))
 
 
     

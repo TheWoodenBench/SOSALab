@@ -14,5 +14,13 @@ pipeline {
                 }
             }
         }
+
+        stage('Production') {
+            steps {
+                dir ('production') {
+                    cp '../test/*' '.'
+                }
+            }
+        }
     }
 }
