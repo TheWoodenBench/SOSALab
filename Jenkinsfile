@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Test') { 
             steps {
-                sh "mkdir 'test'"
+                new File('test').mkdir()
 
                 dir ('test') {
                     checkout scm
