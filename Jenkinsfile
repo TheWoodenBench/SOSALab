@@ -22,7 +22,7 @@ pipeline {
         stage('Production') {
             steps {
                 dir ('production') {
-                    bat "cp '../test/*' '.'"
+                    bat "xcopy '..\\test\\' '.'"
                 }
             }
         }
