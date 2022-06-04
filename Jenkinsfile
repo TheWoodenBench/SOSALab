@@ -5,8 +5,7 @@ pipeline {
         stage('Test') { 
             steps {
                 script {
-                    def now = new Date()
-                    def DATETIME = now.format("yyyyMMddHHmmss", TimeZone.getTimeZone('UTC'))
+                    DATETIME = new Date().format("yyyyMMddHHmmss", TimeZone.getTimeZone('UTC'))
                 }
 
                 dir ('test') {
