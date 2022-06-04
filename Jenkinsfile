@@ -26,5 +26,11 @@ pipeline {
                 }
             }
         }
+
+        stage('Cleanup') {
+            steps {
+                bat "rmdir -r test"
+            }
+        }
     }
 }
