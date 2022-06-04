@@ -5,7 +5,8 @@ pipeline {
         stage('Test') { 
             steps {
                 script {
-                    DATETIME = java.time.LocalDateTime.now()
+                    def now = new Date()
+                    def DATETIME = now.format("yyyyMMddHHmmss", TimeZone.getTimeZone('UTC'))DATETIME = String.format("", java.time.LocalDateTime.now())
                 }
 
                 dir ('test') {
