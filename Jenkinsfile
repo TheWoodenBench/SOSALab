@@ -4,8 +4,8 @@ pipeline {
     stages {
         stage('Preparation') {
             steps {
-                bat "rmdir -rf test"
-                bat "rmdir -rf production"
+                bat "rd /S /Q test"
+                bat "rd /S /Q production"
             }
         }
 
@@ -36,7 +36,7 @@ pipeline {
 
         stage('Cleanup') {
             steps {
-                bat "rmdir -r test"
+                bat "rd /S /Q test"
             }
         }
     }
