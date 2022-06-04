@@ -2,6 +2,13 @@ pipeline {
     agent any
 
     stages {
+        stage('Preparation') {
+            steps {
+                bat "rmdir -r test"
+                bat "rmdir -r production"
+            }
+        }
+
         stage('Test') { 
             steps {
                 script {
